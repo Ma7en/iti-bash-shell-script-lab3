@@ -1,0 +1,37 @@
+typeset -i n1
+typeset -i n2
+n1=1
+n2=1
+
+while test $n1 -eq $n2
+do
+    n2=$n2+1
+    echo $n1
+
+    if [ $n1 -gt $n2 ]
+    then
+        break
+    else
+        continue
+    fi
+    
+    n1=$n1+1
+    echo $n2
+done
+
+# 1 => Error 
+# ./output: line 1: typeset: `–i': not a valid identifier
+# ./output: line 2: typeset: `–i': not a valid identifier
+# ./output: line 5: test: –eq: binary operator expected
+# Fix => 
+# Replace –i with -i
+
+
+# 2 => Error 
+# ./output: line 9: print: command not found
+# Fix => 
+# Replace print with echo
+
+# result => 1
+
+
